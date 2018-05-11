@@ -102,6 +102,9 @@ EOF
 # Create transport mapping
 /usr/sbin/postmap /usr/share/assp/postfix/transport
 
+# A postfix restart seems necessary to make it work
+/etc/init.d/postfix restart
+
 sleep 5
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf	
