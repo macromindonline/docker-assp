@@ -27,15 +27,23 @@ then
 		ssh-add /root/.ssh/server-rsa
 		ssh-keyscan bitbucket.org >> /root/.ssh/known_hosts
 		cd /usr/share
-		if [ -d "$DIR" ]
+		if [ -d "$DIR/.git" ]
 		then
 			cd $DIR
 			git pull
 		else
-			git clone "$GIT_URL" $DIR
+			mkdir -p $DIR
+			cd $DIR
+			git init
+			git remote add origin "$GIT_URL"
+			git fetch
+			git checkout -t origin/master
+			cd ..
+
+			#git clone "$GIT_URL" $DIR
+
 			wget -O assp_new.zip $ASSP_URL
 			unzip -n assp_new.zip "assp/*"
-
 
 			if [ "$MYSQL_DATABASE" -a "$MYSQL_USER" -a "$MYSQL_PASSWORD" ]
 			then
