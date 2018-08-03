@@ -104,9 +104,9 @@ command		= /usr/sbin/rsyslogd -n
 command		= /keep-updated.sh
 stdout_logfile	= /var/log/keep-updated.log
 
-[program:remove-deferred]
-command         = /remove_all_deferred.sh
-stdout_logfile  = /var/log/remove-deferred.log
+[program:maintenance]
+command         = /maintenance.sh
+stdout_logfile  = /var/log/maintenance.log
 
 EOF
 

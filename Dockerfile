@@ -56,6 +56,6 @@ RUN apt-get clean \
 
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY keep-updated.sh /keep-updated.sh
-COPY remove_all_deferred.sh /remove_all_deferred.sh
+COPY maintenance.sh /maintenance.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

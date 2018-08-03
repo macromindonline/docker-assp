@@ -7,6 +7,9 @@
 while true
 do
 	/usr/sbin/postsuper -d ALL deferred
-	sleep 24h
+	cd /root/Maildir/new/
+	find . -type f -exec mv {} /usr/share/assp/errors/spam/ \;
+
+	sleep 2h
 done
 
